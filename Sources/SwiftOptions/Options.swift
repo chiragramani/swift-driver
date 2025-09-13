@@ -776,6 +776,9 @@ extension Option {
   public static let printZeroStats: Option = Option("-print-zero-stats", .flag, attributes: [.helpHidden, .frontend], helpText: "Prints all stats even if they are zero")
   public static let profileCoverageMapping: Option = Option("-profile-coverage-mapping", .flag, attributes: [.frontend, .noInteractive], helpText: "Generate coverage data for use with profiled execution counts")
   public static let profileGenerate: Option = Option("-profile-generate", .flag, attributes: [.frontend, .noInteractive], helpText: "Generate instrumented code to collect execution counts")
+  public static let irProfileGenerate: Option = Option("-ir-profile-generate", .flag, attributes: [.frontend, .noInteractive], helpText: "Generate instrumented code at LLVM IR Level")
+  public static let csProfileGenerate: Option = Option("-cs-profile-generate", .flag, attributes: [.frontend, .noInteractive], helpText: "Enable context-sensitive IR PGO instrumentation (optionally writing .profraws under <dir>)")
+  public static let csProfileGenerateEq: Option = Option("-cs-profile-generate=", .joined, attributes: [.frontend, .noInteractive, .argumentIsPath], metaVar: "<dir>", helpText: "Enable context-sensitive IR PGO instrumentation (optionally writing .profraws under <dir>)")
   public static let profileSampleUse: Option = Option("-profile-sample-use=", .joined, attributes: [.frontend, .noInteractive, .argumentIsPath], metaVar: "<profile data>", helpText: "Supply sampling-based profiling data from llvm-profdata to enable profile-guided optimization")
   public static let profileStatsEntities: Option = Option("-profile-stats-entities", .flag, attributes: [.helpHidden, .frontend], helpText: "Profile changes to stats in -stats-output-dir, subdivided by source entity")
   public static let profileStatsEvents: Option = Option("-profile-stats-events", .flag, attributes: [.helpHidden, .frontend], helpText: "Profile changes to stats in -stats-output-dir")
@@ -1749,6 +1752,9 @@ extension Option {
       Option.printZeroStats,
       Option.profileCoverageMapping,
       Option.profileGenerate,
+      Option.irProfileGenerate,
+      Option.csProfileGenerate,
+      Option.csProfileGenerateEq,
       Option.profileSampleUse,
       Option.profileStatsEntities,
       Option.profileStatsEvents,

@@ -237,6 +237,8 @@ extension Driver {
     try commandLine.appendLast(.RpassMissedEQ, from: &parsedOptions)
     try commandLine.appendLast(.suppressWarnings, from: &parsedOptions)
     try commandLine.appendLast(.profileGenerate, from: &parsedOptions)
+    try commandLine.appendLast(.csProfileGenerate, from: &parsedOptions)
+    try commandLine.appendLast(.csProfileGenerateEq, from: &parsedOptions)
     try commandLine.appendLast(.profileUse, from: &parsedOptions)
     try commandLine.appendLast(.profileCoverageMapping, from: &parsedOptions)
     try commandLine.appendLast(.debugInfoForProfiling, from: &parsedOptions)
